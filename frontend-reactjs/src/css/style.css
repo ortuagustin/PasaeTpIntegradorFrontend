@@ -1,0 +1,111 @@
+#admin-panel, .form-row {
+    margin-top: 2%;
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
+}
+
+.button-col button {
+    margin-right: 2%;
+}
+
+.panel-component {
+    margin-top: 2%;
+}
+
+.margin-bottom {
+    margin-bottom: 2%;
+}
+
+.margin-top {
+    margin-top: 2%;
+}
+
+.margin-left {
+    margin-left: 5%;
+}
+
+
+.div-autocomplete .selected {
+	background-color: #4183C4;
+	color: white;
+}
+
+.div-autocomplete .autocomplete-option {
+	display: block;
+	padding: 5px 10px;
+	border-bottom: 1px solid #DDD;
+}
+
+.div-autocomplete > div > div {
+    left: inherit !important;
+    top: inherit !important;
+    z-index: 999;
+}
+
+#genotype-error-message {
+    color: rgb(182, 17, 17);
+}
+
+.phenotype-option {
+    height: 50px;
+    border: 1px solid rgb(182, 17, 17);;
+    border-radius: 5px;
+}
+
+.patient-selected {
+    height: 35px;
+    border: 1px solid rgb(19, 134, 180);
+    border-radius: 5px;
+}
+
+.remove-patient-button {
+    margin-left: 5%;
+}
+
+.phenotype-option.selected {
+    height: 50px;
+    border: 1px solid rgb(129, 14, 14);;
+    background-color: rgba(231, 18, 18, 0.555);
+    border-radius: 5px;
+}
+
+/* Mismo estilos que el form control */
+.div-autocomplete input {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.div-autocomplete input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.animated-ease-1seg {
+    transition: 0.1s all ease;
+}
+
+.red, .red-hover:hover {
+    color: rgb(160, 17, 17);
+}
+
+.yellow, .yellow-hover:hover {
+    color: #afaf09;
+}
+
+.green, .green-hover:hover {
+    color: #1c9b17;
+}
