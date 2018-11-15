@@ -131,7 +131,7 @@ export default class AddAnalysisModal extends React.Component {
     selectPathology(pathology) {
         let self = this;
         $.ajax({
-            url: 'http://localhost:8080/pathologies/' + pathology.id,
+            url: 'https://pasae-backend.herokuapp.com/pathologies/' + pathology.id,
             dataType: "json",
         }).done(function (jsonReponse) {
             if (jsonReponse) {
@@ -154,7 +154,7 @@ export default class AddAnalysisModal extends React.Component {
         let idx = snpsData.findIndex((snp) => snp.snp == snpId);
         snpsData[idx].isSelected = isChecked;
         this.setState({ snpsData });
-    } 
+    }
 
     /**
      * Ni bien se renderiza el componente pedimos los roles
@@ -162,7 +162,7 @@ export default class AddAnalysisModal extends React.Component {
      */
     componentDidMount() {
         let self = this;
-        
+
         // Cuando se termina de abrir hago focus en el input de descripcion
         $('#' + self.props.modalId).on('shown.bs.modal', function () {
             $('#analysisDescription-input').focus();
@@ -211,7 +211,7 @@ export default class AddAnalysisModal extends React.Component {
         }
 
         $.ajax({
-            url: 'http://localhost:8080/analysis/',
+            url: 'https://pasae-backend.herokuapp.com/analysis/',
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: 'PUT',
@@ -263,7 +263,7 @@ export default class AddAnalysisModal extends React.Component {
         }
 
         $.ajax({
-            url: 'http://localhost:8080/analysis/draft',
+            url: 'https://pasae-backend.herokuapp.com/analysis/draft',
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: 'PATCH',

@@ -49,7 +49,7 @@ class App extends React.Component {
 	logout() {
 		let self = this;
 		$.ajax({
-			url: 'http://localhost:8080/logout',
+			url: 'https://pasae-backend.herokuapp.com/logout',
 		}).done(function () {
 			self.getCurrentUser(); // Actualizo el estado del usuario
 		}).fail(function (jqXHR, textStatus, errorThrown) {
@@ -180,7 +180,7 @@ class App extends React.Component {
 	getCurrentUser() {
 		let self = this;
 		$.ajax({
-			url: 'http://localhost:8080/currentUser',
+			url: 'https://pasae-backend.herokuapp.com/currentUser',
 		}).done(function (jsonResponse) {
 			if (jsonResponse && jsonResponse.id) {
 				self.setState({ user: jsonResponse });

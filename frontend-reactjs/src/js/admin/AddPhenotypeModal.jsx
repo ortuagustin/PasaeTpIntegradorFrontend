@@ -99,7 +99,7 @@ class AddPhenotypeModal extends React.Component {
             }
         });
 
-        // Cuando ya esta abierto el modal, hago focus en el 
+        // Cuando ya esta abierto el modal, hago focus en el
         // primer input
         $('#' + self.props.modalId).on('shown.bs.modal', function() {
             $('#phenotype-name-input').focus();
@@ -112,7 +112,7 @@ class AddPhenotypeModal extends React.Component {
     }
 
     /**
-     * Maneja el evento cuando se presiona una tecla en el 
+     * Maneja el evento cuando se presiona una tecla en el
      * formualario
      * @param {Event} e Evento de la presion de la tecla
      */
@@ -135,12 +135,12 @@ class AddPhenotypeModal extends React.Component {
 
         let url;
         let values;
-       
+
         if (self.props.phenotypeType == 'numeric') {
-            url = 'http://localhost:8080/numeric-phenotypes/';
+            url = 'https://pasae-backend.herokuapp.com/numeric-phenotypes/';
             values = null;
         } else {
-            url = 'http://localhost:8080/categoric-phenotypes/';
+            url = 'https://pasae-backend.herokuapp.com/categoric-phenotypes/';
             values = self.state.values;
         }
 
@@ -207,12 +207,12 @@ class AddPhenotypeModal extends React.Component {
             let valuesList = this.state.values.map((value, idx) => {
                 let deleteButton = null;
                 let addButton = null;
-                
+
                 // Agrego el boton de eliminar a todos menos al primero
                 if (idx != 0) {
                     deleteButton = <button className="btn btn-danger" onClick={() => this.removeValue(idx)} title="Eliminar valor">-</button>;
                 }
-                
+
                 // Agrego el boton de agregar solo al lado del ultimo
                 if (idx == this.state.values.length - 1) {
                     addButton = (
@@ -224,7 +224,7 @@ class AddPhenotypeModal extends React.Component {
                         </button>
                     );
                 }
-    
+
                 return (
                     <div key={"input-value-div-" + idx} className="row margin-bottom text-center">
                         <div className="col">
@@ -251,13 +251,13 @@ class AddPhenotypeModal extends React.Component {
                         <h5>Valores</h5>
                         {valuesList}
                     </div>
-                </div> 
+                </div>
             );
         }
 
         // Verifico que no este cargando y que el formulario sea valido
         let isValid = this.isFormValid();
-        
+
         return(
             <div className="modal fade" id={this.props.modalId} tabIndex="-1" role="dialog" aria-labelledby={this.props.modalId} aria-hidden="true">
                 <div className="modal-dialog" role="document">
@@ -275,7 +275,7 @@ class AddPhenotypeModal extends React.Component {
                                     <input type="text" id="phenotype-name-input" name="name" value={this.state.name} className="form-control" onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
                                 </div>
                             </div>
-                            
+
                             {valuesComponent}
                         </div>
                         <div className="modal-footer">

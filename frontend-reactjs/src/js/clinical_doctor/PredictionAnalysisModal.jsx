@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * 
+ *
  * @param {*} props Props del componente
  */
 export default class PredictionAnalysisModal extends React.Component {
@@ -26,7 +26,7 @@ export default class PredictionAnalysisModal extends React.Component {
         // Cargo los fenotipos numericos y categoricos
         self.setState({ loading: true }, () => {
             $.ajax({
-                url: 'http://localhost:8080/prediction/',
+                url: 'https://pasae-backend.herokuapp.com/prediction/',
                 type: 'PUT',
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
@@ -86,7 +86,7 @@ export default class PredictionAnalysisModal extends React.Component {
                             </button>
                         </div>
                         <div className="modal-body">
-    
+
                             {/* Input con la descripcion del analisis */}
                             <div className="row margin-top">
                                 <div className="col">
@@ -129,7 +129,7 @@ export default class PredictionAnalysisModal extends React.Component {
                                     </h4>
                                 </div>
                             }
-    
+
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Cerrar</button>

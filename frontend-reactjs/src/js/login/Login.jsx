@@ -59,7 +59,7 @@ class Login extends React.Component {
         let self = this;
         self.setState({ loading: true}, () => {
             $.ajax({
-                url: 'http://localhost:8080/login',
+                url: 'https://pasae-backend.herokuapp.com/login',
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 type: 'POST',

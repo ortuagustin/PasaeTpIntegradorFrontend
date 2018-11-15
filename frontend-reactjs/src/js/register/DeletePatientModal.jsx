@@ -25,7 +25,7 @@ class DeletePatientModal extends React.Component {
         let self = this;
 
         $.ajax({
-            url: 'http://localhost:8080/patients/' + self.props.patientId,
+            url: 'https://pasae-backend.herokuapp.com/patients/' + self.props.patientId,
             contentType: "application/json; charset=utf-8",
             type: 'DELETE',
         }).done(function () {

@@ -33,7 +33,7 @@ class PatientsAutocomplete extends React.Component {
         self.setState({ patientInput: e.target.value }, () => {
             // Hago el request
             $.ajax({
-                url: 'http://localhost:8080/patients/',
+                url: 'https://pasae-backend.herokuapp.com/patients/',
                 data: {
                     search: self.state.patientInput
                 }
@@ -51,7 +51,7 @@ class PatientsAutocomplete extends React.Component {
      * @param {*} patient Paciente seleccionada
      */
     selectPatient(patient) {
-        // Guardo el nombre seleccionado, limpio las sugerencias y despues llamo al callback 
+        // Guardo el nombre seleccionado, limpio las sugerencias y despues llamo al callback
         // pasado por props
         this.setState({
             patientInput: this.props.preserveInput ? patient.name : '',

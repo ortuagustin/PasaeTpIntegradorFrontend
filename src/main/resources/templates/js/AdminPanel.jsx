@@ -21,7 +21,7 @@ class AdminPanel extends React.Component {
      */
     getUsers() {
         var self = this;
-        fetch('http://localhost:8080/admin/users/', {
+        fetch('https://pasae-backend.herokuapp.com/admin/users/', {
             method: 'GET',
             credentials: 'same-origin'
         })
@@ -61,11 +61,11 @@ class AdminPanel extends React.Component {
                 text: 'Apellido'
             }
         ];
-            
+
         return(
             <div>
                 <h1>Componente del panel de admin</h1>
-                {this.users}   
+                {this.users}
                 <BootstrapTable keyField='id' data={this.state.users} columns={columns} />
             </div>
         );

@@ -121,7 +121,7 @@ class AddPathologyModal extends React.Component {
             }
         });
 
-        // Cuando ya esta abierto el modal, hago focus en el 
+        // Cuando ya esta abierto el modal, hago focus en el
         // primer input
         $('#' + self.props.modalId).on('shown.bs.modal', function() {
             $('#pathology-name-input').focus();
@@ -134,7 +134,7 @@ class AddPathologyModal extends React.Component {
     }
 
     /**
-     * Maneja el evento cuando se presiona una tecla en el 
+     * Maneja el evento cuando se presiona una tecla en el
      * formualario
      * @param {Event} e Evento de la presion de la tecla
      */
@@ -158,7 +158,7 @@ class AddPathologyModal extends React.Component {
         let phenotypeId = self.props.action == 'edit' ? self.props.selectedPathology.id : '';
 
         $.ajax({
-            url: 'http://localhost:8080/pathologies/' + phenotypeId,
+            url: 'https://pasae-backend.herokuapp.com/pathologies/' + phenotypeId,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: self.props.action == 'add' ? 'PUT' : 'PATCH',
@@ -201,8 +201,8 @@ class AddPathologyModal extends React.Component {
         self.setState({ phenotypesInput: e.target.value }, () => {
             let nameSearched = self.state.phenotypesInput;
 
-            let url = self.state.phenotypeType == 'numeric' ? 'http://localhost:8080/numeric-phenotypes/' : 'http://localhost:8080/categoric-phenotypes/';
-            
+            let url = self.state.phenotypeType == 'numeric' ? 'https://pasae-backend.herokuapp.com/numeric-phenotypes/' : 'https://pasae-backend.herokuapp.com/categoric-phenotypes/';
+
             // Hago el request
             $.ajax({
                 url: url,
@@ -273,7 +273,7 @@ class AddPathologyModal extends React.Component {
                     <p>Categóricos</p>
                     {categoricPhenotypesvaluesList}
                 </div>
-            </div> 
+            </div>
         );
 
         // Verifico que no este cargando y que el formulario sea valido
@@ -336,7 +336,7 @@ class AddPathologyModal extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div className="row">
                                 <div className="col-md-12">
                                     {valuesComponent}

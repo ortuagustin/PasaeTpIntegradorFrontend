@@ -24,7 +24,7 @@ class DeleteUserModal extends React.Component {
     removeUser() {
         let self = this;
         $.ajax({
-            url: 'http://localhost:8080/admin/users/' + self.props.userId,
+            url: 'https://pasae-backend.herokuapp.com/admin/users/' + self.props.userId,
             contentType: "application/json; charset=utf-8",
             type: 'DELETE',
         }).done(function () {

@@ -45,7 +45,7 @@ class PhenotypesCRUDComponent extends React.Component {
     }
 
     /**
-     * Metodo que se ejecuta cuando termina de 
+     * Metodo que se ejecuta cuando termina de
      * renderizar el componente
      */
     componentDidMount() {
@@ -55,7 +55,7 @@ class PhenotypesCRUDComponent extends React.Component {
     /**
      * Obtiene los fenotipos via AJAX.
      * Para mas info acerca de los parametros: https://react-bootstrap-table.github.io/react-bootstrap-table2/docs/table-props.html#ontablechange-function
-     * @param {string} type Tipo de accion realizada en la tabla 
+     * @param {string} type Tipo de accion realizada en la tabla
      * @param {*} newState Atributos de la tabla actuales
      */
     getPhenotypes(actionType = '', newState = {}) {
@@ -65,7 +65,7 @@ class PhenotypesCRUDComponent extends React.Component {
         let pageNumber = newState.page ? newState.page : self.state.page;
         let sizePerPage = newState.sizePerPage ? newState.sizePerPage : self.state.sizePerPage;
 
-        let url = self.state.phenotypesType == 'numeric' ? 'http://localhost:8080/numeric-phenotypes/' : 'http://localhost:8080/categoric-phenotypes/';
+        let url = self.state.phenotypesType == 'numeric' ? 'https://pasae-backend.herokuapp.com/numeric-phenotypes/' : 'https://pasae-backend.herokuapp.com/categoric-phenotypes/';
 
         // Cargo los fenotipos numericos y categoricos
         self.setState({ loading: true }, () => {
@@ -132,7 +132,7 @@ class PhenotypesCRUDComponent extends React.Component {
 
     /**
      * Selecciona el fenotipo actual y ejecuta una accion
-     * @param {*} phenotype Fenotipo a seleccionar 
+     * @param {*} phenotype Fenotipo a seleccionar
      * @param {*} action Editar | Eliminar el fenotipo seleccionado
      */
     selectAndAction(phenotype, action) {
@@ -194,7 +194,7 @@ class PhenotypesCRUDComponent extends React.Component {
             prePageText: 'Anterior',
             nextPageText: 'Siguiente'
         };
-    
+
         return (
             <div>
                 <div className="row">
@@ -265,7 +265,7 @@ class PhenotypesCRUDComponent extends React.Component {
                     phenotypeType={this.state.phenotypesType}
                     getPhenotypes={this.getPhenotypes}
                 />
-                
+
                 {/* Modal de confirmacion de eliminacion de fenotipo */}
                 <DeletePhenotypeModal
                     modalId={this.deletePhenotypeModalId}

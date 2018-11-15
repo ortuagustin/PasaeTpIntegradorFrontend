@@ -23,9 +23,9 @@ class DeleteAnalysisModal extends React.Component {
      */
     removeAnalysis() {
         let self = this;
-        
+
         $.ajax({
-            url: 'http://localhost:8080/analysis/' + self.props.analisysId,
+            url: 'https://pasae-backend.herokuapp.com/analysis/' + self.props.analisysId,
             contentType: "application/json; charset=utf-8",
             type: 'DELETE',
         }).done(function () {

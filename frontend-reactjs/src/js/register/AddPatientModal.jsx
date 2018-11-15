@@ -132,7 +132,7 @@ class AddPatientModal extends React.Component {
     selectPathology(pathology) {
         let self = this;
         $.ajax({
-            url: 'http://localhost:8080/pathologies/' + pathology.id,
+            url: 'https://pasae-backend.herokuapp.com/pathologies/' + pathology.id,
             dataType: "json",
         }).done(function (jsonReponse) {
             if (jsonReponse) {
@@ -174,7 +174,7 @@ class AddPatientModal extends React.Component {
             }
         });
 
-        // Cuando ya esta abierto el modal, hago focus en el 
+        // Cuando ya esta abierto el modal, hago focus en el
         // primer input
         $('#' + self.props.modalId).on('shown.bs.modal', function() {
             $('#patient-name-input').focus();
@@ -190,7 +190,7 @@ class AddPatientModal extends React.Component {
      * Completa el formulario con los datos del paciente que
      * estamos editando
      */
-    updateForm() {        
+    updateForm() {
         // Actualizo los datos
         let patient = this.state.patient;
 
@@ -209,7 +209,7 @@ class AddPatientModal extends React.Component {
     }
 
     /**
-     * Maneja el evento cuando se presiona una tecla en el 
+     * Maneja el evento cuando se presiona una tecla en el
      * formualario
      * @param {Event} e Evento de la presion de la tecla
      */
@@ -231,9 +231,9 @@ class AddPatientModal extends React.Component {
         }
 
         let patientId = self.props.action == 'edit' ? self.props.selectedPatient.id : '';
-        
+
         $.ajax({
-            url: 'http://localhost:8080/patients/' + patientId,
+            url: 'https://pasae-backend.herokuapp.com/patients/' + patientId,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: self.props.action == 'add' ? 'PUT' : 'PATCH',
@@ -354,13 +354,13 @@ class AddPatientModal extends React.Component {
                         || (
                             this.state.patient.numericPhenotypes.length
                             && !this.state.patient.numericPhenotypes.some((phenotype) => !phenotype.value)
-                        ) 
+                        )
                     ) && (
                         !this.state.patient.categoricPhenotypes.length
                         || (
                             this.state.patient.categoricPhenotypes.length
                             && !this.state.patient.categoricPhenotypes.some((phenotype) => !phenotype.valueId)
-                        ) 
+                        )
                     )
                 )
             )
@@ -427,7 +427,7 @@ class AddPatientModal extends React.Component {
                     <p>Categóricos</p>
                     {categoricPhenotypesvaluesList}
                 </div>
-            </div> 
+            </div>
         );
 
         // Verifico que no este cargando y que el formulario sea valido

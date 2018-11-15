@@ -25,7 +25,7 @@ export default class PublishAnalysisModal extends React.Component {
         let self = this;
 
         $.ajax({
-            url: 'http://localhost:8080/analysis/publish/' + self.props.analisysId,
+            url: 'https://pasae-backend.herokuapp.com/analysis/publish/' + self.props.analisysId,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: 'PATCH'

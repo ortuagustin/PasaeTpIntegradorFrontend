@@ -44,7 +44,7 @@ export default class AnalysisPublishedCRUD extends React.Component {
     }
 
     /**
-     * Metodo que se ejecuta cuando termina de 
+     * Metodo que se ejecuta cuando termina de
      * renderizar el componente
      */
     componentDidMount() {
@@ -69,7 +69,7 @@ export default class AnalysisPublishedCRUD extends React.Component {
     /**
      * Obtiene los fenotipos via AJAX.
      * Para mas info acerca de los parametros: https://react-bootstrap-table.github.io/react-bootstrap-table2/docs/table-props.html#ontablechange-function
-     * @param {string} type Tipo de accion realizada en la tabla 
+     * @param {string} type Tipo de accion realizada en la tabla
      * @param {*} newState Atributos de la tabla actuales
      */
     getPublishedAnalysis(actionType = '', newState = {}) {
@@ -82,7 +82,7 @@ export default class AnalysisPublishedCRUD extends React.Component {
         // Cargo los fenotipos numericos y categoricos
         self.setState({ loading: true }, () => {
             $.ajax({
-                url: 'http://localhost:8080/analysis/published',
+                url: 'https://pasae-backend.herokuapp.com/analysis/published',
                 data: {
                     newestPage: pageNumber - 1,
                     newestSizePerPage: sizePerPage,

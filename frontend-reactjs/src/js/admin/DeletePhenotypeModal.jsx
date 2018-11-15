@@ -25,7 +25,7 @@ class DeletePhenotypeModal extends React.Component {
     removePhenotypes() {
         let self = this;
 
-        let url = self.props.phenotypeType == 'numeric' ? 'http://localhost:8080/numeric-phenotypes/' : 'http://localhost:8080/categoric-phenotypes/';
+        let url = self.props.phenotypeType == 'numeric' ? 'https://pasae-backend.herokuapp.com/numeric-phenotypes/' : 'https://pasae-backend.herokuapp.com/categoric-phenotypes/';
 
         $.ajax({
             url: url + self.props.phenotypeId,

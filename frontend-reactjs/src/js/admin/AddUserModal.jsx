@@ -101,7 +101,7 @@ class AddUserModal extends React.Component {
             }
         });
 
-        // Cuando ya esta abierto el modal, hago focus en el 
+        // Cuando ya esta abierto el modal, hago focus en el
         // primer input
         $('#' + self.props.modalId).on('shown.bs.modal', function() {
             $('#username-input').focus();
@@ -114,7 +114,7 @@ class AddUserModal extends React.Component {
     }
 
     /**
-     * Maneja el evento cuando se presiona una tecla en el 
+     * Maneja el evento cuando se presiona una tecla en el
      * formualario
      * @param {Event} e Evento de la presion de la tecla
      */
@@ -135,9 +135,9 @@ class AddUserModal extends React.Component {
             return;
         }
 
-        let idUser = self.props.action == 'edit' ? self.props.selectedUser.id : ''; // Id para editar el usuario 
+        let idUser = self.props.action == 'edit' ? self.props.selectedUser.id : ''; // Id para editar el usuario
         $.ajax({
-            url: 'http://localhost:8080/admin/users/' + idUser,
+            url: 'https://pasae-backend.herokuapp.com/admin/users/' + idUser,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: self.props.action == 'add' ? 'PUT' : 'PATCH',
@@ -165,7 +165,7 @@ class AddUserModal extends React.Component {
     getRoles() {
         let self = this;
         $.ajax({
-            url: 'http://localhost:8080/admin/roles/',
+            url: 'https://pasae-backend.herokuapp.com/admin/roles/',
         }).done(function (jsonReponse, textStatus, jqXHR) {
             if (jqXHR.status == 200) {
                 self.setState({ roles: jsonReponse });
@@ -243,7 +243,7 @@ class AddUserModal extends React.Component {
                                         placeholder={this.props.action == 'edit' ? 'Dejar en blanco para no modificar' : ''}
                                     />
                                 </div>
-                            </div> 
+                            </div>
                             <div className="form-row">
                                 <div className="col">
                                     <label htmlFor="firstname-input">Nombre</label>
@@ -259,14 +259,14 @@ class AddUserModal extends React.Component {
                                     <label htmlFor="username-email">Mail</label>
                                     <input type="text" id="username-email" name="email" value={this.state.email} className="form-control" onChange={this.handleChange} onKeyPress={this.handleKeyPress} />
                                 </div>
-                            </div> 
+                            </div>
                             <div className="form-row">
                                 <div className="col">
                                     <h5>Roles</h5>
                                     {rolesList}
                                 </div>
-                            </div> 
-                            
+                            </div>
+
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Cerrar</button>

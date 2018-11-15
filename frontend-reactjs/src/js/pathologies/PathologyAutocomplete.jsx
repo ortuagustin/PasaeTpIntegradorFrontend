@@ -33,7 +33,7 @@ class PathologyAutocomplete extends React.Component {
         self.setState({ pathologyInput: e.target.value }, () => {
             // Hago el request
             $.ajax({
-                url: 'http://localhost:8080/pathologies/',
+                url: 'https://pasae-backend.herokuapp.com/pathologies/',
                 data: {
                     search: self.state.pathologyInput
                 }
@@ -51,7 +51,7 @@ class PathologyAutocomplete extends React.Component {
      * @param {*} pathology Patologia seleccionada
      */
     selectPathology(pathology) {
-        // Guardo el nombre seleccionado, limpio las sugerencias y despues llamo al callback 
+        // Guardo el nombre seleccionado, limpio las sugerencias y despues llamo al callback
         // pasado por props
         this.setState({
             pathologyInput: pathology.name,

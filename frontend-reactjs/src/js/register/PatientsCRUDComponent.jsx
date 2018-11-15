@@ -44,7 +44,7 @@ class PatientsCRUDComponent extends React.Component {
     }
 
     /**
-     * Metodo que se ejecuta cuando termina de 
+     * Metodo que se ejecuta cuando termina de
      * renderizar el componente
      */
     componentDidMount() {
@@ -54,7 +54,7 @@ class PatientsCRUDComponent extends React.Component {
     /**
      * Obtiene los fenotipos via AJAX.
      * Para mas info acerca de los parametros: https://react-bootstrap-table.github.io/react-bootstrap-table2/docs/table-props.html#ontablechange-function
-     * @param {string} type Tipo de accion realizada en la tabla 
+     * @param {string} type Tipo de accion realizada en la tabla
      * @param {*} newState Atributos de la tabla actuales
      */
     getPatients(actionType = '', newState = {}) {
@@ -67,7 +67,7 @@ class PatientsCRUDComponent extends React.Component {
         // Cargo los pacientes
         self.setState({ loading: true }, () => {
             $.ajax({
-                url: 'http://localhost:8080/patients/',
+                url: 'https://pasae-backend.herokuapp.com/patients/',
                 data: {
                     newestPage: pageNumber - 1,
                     newestSizePerPage: sizePerPage,
@@ -118,7 +118,7 @@ class PatientsCRUDComponent extends React.Component {
 
     /**
      * Selecciona el paciente actual y ejecuta una accion
-     * @param {*} patient Paciente a seleccionar 
+     * @param {*} patient Paciente a seleccionar
      * @param {*} action Editar | Eliminar el paciente seleccionado
      */
     selectAndAction(patient, action) {
@@ -130,7 +130,7 @@ class PatientsCRUDComponent extends React.Component {
             }
         });
     }
-    
+
     render() {
         const columns = [
             {
@@ -202,7 +202,7 @@ class PatientsCRUDComponent extends React.Component {
             prePageText: 'Anterior',
             nextPageText: 'Siguiente'
         };
-    
+
         return (
             <div>
                 <div className="row">
@@ -263,7 +263,7 @@ class PatientsCRUDComponent extends React.Component {
                     getPatients={this.getPatients}
                     currentUserId={this.props.currentUserId}
                 />
-                
+
                 {/* Modal de confirmacion de eliminacion de paciente */}
                 <DeletePatientModal
                     modalId={this.deletePatientModalId}
