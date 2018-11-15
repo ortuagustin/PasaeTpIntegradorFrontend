@@ -28,5 +28,7 @@ src/main/resources/static
 /nbdist/
 /.nb-gradle/
 
+/node_modules/
+
 ### VS Code ###
 .vscode
