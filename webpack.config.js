@@ -1,8 +1,8 @@
 // Configuracion
 var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
-var bundlesSrcPath = path.resolve(__dirname, '../src/main/resources/static/dist');
-var templateSrcServerPath = path.resolve(__dirname, '../src/main/resources/templates/');
+var bundlesSrcPath = path.resolve(__dirname, './src/main/resources/static/dist');
+var templateSrcServerPath = path.resolve(__dirname, './src/main/resources/templates/');
 const webpack = require('webpack');
 
 module.exports = {
@@ -26,7 +26,7 @@ module.exports = {
 	},
 	plugins: [
 		new CopyWebpackPlugin([{
-			from: 'src/index.html',
+			from: 'frontend-reactjs/src/index.html',
 			to: templateSrcServerPath
 		}]),
 		new webpack.HotModuleReplacementPlugin(),
