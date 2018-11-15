@@ -1,6 +1,8 @@
 // Configuracion
 var path = require('path');
+console.log(path);
 var bundlesSrcPath = path.resolve(__dirname, './src/main/resources/static/dist');
+console.log(bundlesSrcPath);
 const webpack = require('webpack');
 
 module.exports = {
